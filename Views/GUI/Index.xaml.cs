@@ -26,13 +26,15 @@ namespace BANKGUI
         }
         private void TextMode_Click(object sender, RoutedEventArgs e)
         {
-            var Main = new MainController(1);
             this.Close();
+            MainWindow.wybor = 1;
+            var Main = new MainController(MainWindow.wybor);
         }
 
         private void GUI_Click(object sender, RoutedEventArgs e)
         {
-            var Main = new MainController(2);
+            MainWindow.wybor = 2;
+            var Main = new MainController(MainWindow.wybor);
             this.Close();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BANK.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BANKGUI
+namespace BANKGUI.Views.GUI.Users
 {
     /// <summary>
-    /// Logika interakcji dla klasy Login.xaml
+    /// Logika interakcji dla klasy MainUser.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class MainUser : Window
     {
-        public Login()
+        User user;
+        public MainUser(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
     }
 }

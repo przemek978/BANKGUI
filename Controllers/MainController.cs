@@ -49,7 +49,6 @@ namespace BANK.Controllers
                 var Login = new Login();
                 Login.Show();
             }
-            
         }
     }
 }

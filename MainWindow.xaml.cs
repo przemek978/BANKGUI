@@ -22,6 +22,8 @@ namespace BANKGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static int wybor;    // 1 to textmode a 2 to gui
+        public static int typeLogin;// 1 to admin a 2 to user
         public MainWindow()
         {
             //var Main = new MainController();
@@ -43,7 +45,6 @@ namespace BANKGUI
 
             var handle = GetConsoleWindow();
 
-            // Hide
             ShowWindow(handle, SW);// 0 ukrywa a 5 pokazuje
         }
 
