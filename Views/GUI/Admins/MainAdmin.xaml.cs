@@ -23,21 +23,59 @@ namespace BANKGUI.Views.GUI.Admins
     public partial class MainAdmin : Window
     {
         User user;
-        List<User> users { get; set; }
-        //ObservableCollection<User> users { get; set; }
+        public List<User> Users { get; set; }
+        public List<Account> UserAccounts { get; set; }
         List<Account> accounts;
+        public User SelectedUser { get; set; }
+        public Account SelectedAccount { get; set; }
+
         public MainAdmin(User user)
         {
             InitializeComponent();
             this.user = user;
-            users=Menu.Db.GetUsers();
-            //users=new ObservableCollection<User>(Menu.Db.GetUsers());
-            this.usersListbox.ItemsSource = users;
-            accounts =Menu.Db.GetAccounts();
+            Users = Menu.Db.GetUsers();
+            accounts = Menu.Db.GetAccounts();
+            UserAccounts = new List<Account>();
+            WindowState = WindowState.Maximized;    
             DataContext = this;
-            foreach (var u in users)
+        }
+        public void RefreshAccounts(object sender, SelectionChangedEventArgs e)
+        {
+            if (SelectedUser != null)
             {
-
+                DetailsTextBlock.Text = SelectedUser.ToStringExt();
+                UserAccounts.Clear();
+                foreach (Account account in accounts)
+                {
+                    if (SelectedUser.Id == account.UserId)
+                    {
+                        UserAccounts.Add(account);
+                    }
+                }
+                accountsListbox.Items.Refresh();
+                DataContext = this;
+            }
+            else
+            {
+                DetailsTextBlock.Text = "";
+            }
+        }
+        public void SelectAccount(object sender, SelectionChangedEventArgs e)
+        {
+            if (SelectedAccount != null)
+            {
+                DetailsTextBlock.Text = SelectedAccount.ToStringExt();
+            }
+            else
+            {
+                if (SelectedUser != null)
+                {
+                    DetailsTextBlock.Text = SelectedUser.ToStringExt();
+                }
+                else
+                { 
+                    DetailsTextBlock.Text = ""; 
+                }
             }
         }
     }

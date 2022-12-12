@@ -44,9 +44,18 @@ namespace BANK.Models
             string type="User";
             if(typeID == 1)
             {
-                type = "administrator";
+                type = "Administrator";
             }
             return Id + " " + Name + " " + SurName + " Typ uprawnień: "+ type;
+        }
+        public string ToStringExt()
+        {
+            string type = "User";
+            if (typeID == 1)
+            {
+                type = "Administrator";
+            }
+            return "ID: "+Id + "\nImie: " + Name + "\nNazwisko: " + SurName + "\nTyp uprawnień: " + type;
         }
         //public string Name { get { return Username; } }
     }

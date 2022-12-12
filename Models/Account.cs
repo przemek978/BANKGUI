@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BANK.Models
 {
-    internal class Account
+    public class Account
     {
         [Key]
         public string AccountNr { get; set; }
@@ -19,6 +19,14 @@ namespace BANK.Models
             AccountNr = accountNr;
             Balance = balance;
             UserId = userId;
+        }
+        public override string ToString()
+        {
+            return AccountNr;
+        }
+        public string ToStringExt()
+        {
+            return AccountNr + "\nSaldo:" + Balance + " zł";
         }
 
     }
