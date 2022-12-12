@@ -39,6 +39,15 @@ namespace BANK.Models
             this.Password = Password;
             this.typeID = typeID; 
         }
+        public override string ToString()
+        {
+            string type="User";
+            if(typeID == 1)
+            {
+                type = "administrator";
+            }
+            return Id + " " + Name + " " + SurName + " Typ uprawnień: "+ type;
+        }
         //public string Name { get { return Username; } }
     }
 }

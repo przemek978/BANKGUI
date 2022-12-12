@@ -89,7 +89,7 @@ namespace BANK.Controllers
             {
                 if (typelogin == 1)
                 {
-                    var MainAdmin = new BANKGUI.MainAdmin(user);
+                    var MainAdmin = new BANKGUI.Views.GUI.Admins.MainAdmin(user);
                     MainAdmin.Show();
                 }
                 else
