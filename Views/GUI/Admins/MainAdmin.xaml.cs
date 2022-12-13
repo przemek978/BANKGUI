@@ -36,7 +36,7 @@ namespace BANKGUI.Views.GUI.Admins
             Users = Menu.Db.GetUsers();
             accounts = Menu.Db.GetAccounts();
             UserAccounts = new List<Account>();
-            WindowState = WindowState.Maximized;    
+            //WindowState = WindowState.Maximized;    
             DataContext = this;
         }
         public void RefreshAccounts(object sender, SelectionChangedEventArgs e)
@@ -77,6 +77,36 @@ namespace BANKGUI.Views.GUI.Admins
                     DetailsTextBlock.Text = ""; 
                 }
             }
+        }
+        public void Refresh()
+        {
+            //Users.Clear();
+            Users = Menu.Db.GetUsers();
+            usersListbox.ItemsSource = Users;
+            usersListbox.Items.Refresh();
+            DataContext = this;
+        }
+        private void addUser_Click(object sender, RoutedEventArgs e)
+        {
+            //WindowState = WindowState.Minimized;
+            this.Hide();
+            var add = new AddEditUser();
+            add.Show();
+            MainWindow.thisWindow = this;
+        }
+
+        private void editUser_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var add = new AddEditUser(SelectedUser);
+            add.Show();
+            MainWindow.thisWindow = this;
+        }
+
+        private void deleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            Menu.Db.DeleteUser(SelectedUser);
+            this.Refresh();
         }
     }
 }

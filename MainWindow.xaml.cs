@@ -1,4 +1,5 @@
 ﻿using BANK.Controllers;
+using BANK.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace BANKGUI
     {
         public static int wybor;    // 1 to textmode a 2 to gui
         public static int typeLogin;// 1 to admin a 2 to user
+        public static User user;
+        public static Window thisWindow;
         public MainWindow()
         {
             //var Main = new MainController();

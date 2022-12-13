@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using static Azure.Core.HttpHeader;
 
 
 namespace BANK.Models
@@ -34,6 +35,7 @@ namespace BANK.Models
         //User
         public void Register(User user)
         {
+            users = GetUsers();
             int newid;
             if (users.Count == 0)
             {
@@ -92,6 +94,20 @@ namespace BANK.Models
 
             users[FindUser(user)].Password = hashed;
             modelContext.SaveChanges();
+        }
+        public User EditUser(User user)
+        {
+            users = GetUsers();
+            bool con = true;
+            users[FindUser(user)].Username = user.Username;
+            users[FindUser(user)].Name = user.Name;
+            users[FindUser(user)].SurName = user.SurName;
+            if (user.typeID == 1 || user.typeID == 2)
+            {
+                users[FindUser(user)].typeID = user.typeID;
+            }
+            modelContext.SaveChanges();
+            return user;
         }
         public User EditUsername(User user)
         {
@@ -236,7 +252,8 @@ namespace BANK.Models
         }
         public List<User> GetUsers()
         {
-            return users;
+            //return users;
+            return modelContext.users.ToList();
         }
         public List<Account> GetAccounts()
         {

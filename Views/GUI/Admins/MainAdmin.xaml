@@ -5,24 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANKGUI.Views.GUI.Admins"
         mc:Ignorable="d"
-        Title="Panel Administracyjny" Height="1080" Width="1920" Topmost="True">
+        Title="Panel Administracyjny" Height="850" Width="1285" Topmost="True" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="560,10,0,0" TextWrapping="Wrap" Text="Witaj" VerticalAlignment="Top" Height="39" Width="800" TextAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="DetailsTextBlock" Margin="160,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="121" FontSize="20" HorizontalAlignment="Left" Width="1600" Grid.ColumnSpan="2"/>
-        <ListBox x:Name="usersListbox" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" SelectionChanged="RefreshAccounts" Margin="160,220,0,0" Width="690" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left">
-        </ListBox>
-        <ListBox x:Name="accountsListbox" ItemsSource="{Binding UserAccounts}" SelectedItem="{Binding SelectedAccount}" SelectionChanged="SelectAccount" Margin="115,220,0,0" Width="690" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
-        <Button x:Name="addUser"  Content="Dodaj" HorizontalAlignment="Left" Margin="160,725,0,0" VerticalAlignment="Top" Width="230" Height="32"/>
-        <Button x:Name="editUser" Content="Edytuj" HorizontalAlignment="Left" Margin="387,725,0,0" VerticalAlignment="Top" Width="230" Height="32"/>
-        <Button x:Name="deleteUser" Content="Usuń" HorizontalAlignment="Left" Margin="617,725,0,0" VerticalAlignment="Top" Width="230" Height="32"/>
+        <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Witaj" VerticalAlignment="Top" Height="39" Width="518" TextAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" Margin="384,19,0,0"/>
+        <TextBlock x:Name="DetailsTextBlock" Margin="0,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="126" FontSize="20" HorizontalAlignment="Center" Width="717" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="usersListbox" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" SelectionChanged="RefreshAccounts" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="63,237,0,0"/>
+        <ListBox x:Name="accountsListbox" ItemsSource="{Binding UserAccounts}" SelectedItem="{Binding SelectedAccount}" SelectionChanged="SelectAccount" Margin="88,237,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+        <Button x:Name="addUser"  Content="Dodaj" HorizontalAlignment="Right" Margin="0,742,410,0" VerticalAlignment="Top" Width="170" Height="32" Click="addUser_Click"/>
+        <Button x:Name="editUser" Content="Edytuj" HorizontalAlignment="Left" Margin="233,742,0,0" VerticalAlignment="Top" Width="170" Height="32" Click="editUser_Click"/>
+        <Button x:Name="deleteUser" Content="Usuń" HorizontalAlignment="Left" Margin="402,742,0,0" VerticalAlignment="Top" Width="170" Height="32" Click="deleteUser_Click"/>
 
-        <Button x:Name="addAccount"  Content="Dodaj" HorizontalAlignment="Left" Margin="115,725,0,0" VerticalAlignment="Top" Width="230" Height="32" Grid.Column="1"/>
-        <Button x:Name="editAccount" Content="Edytuj" HorizontalAlignment="Left" Margin="340,725,0,0" VerticalAlignment="Top" Width="230" Height="32" Grid.Column="1"/>
-        <Button x:Name="deleteAccount" Content="Usuń" HorizontalAlignment="Left" Margin="570,725,0,0" VerticalAlignment="Top" Width="230" Height="32" Grid.Column="1"/>
+        <Button x:Name="addAccount"  Content="Dodaj" HorizontalAlignment="Right" Margin="0,737,299,0" VerticalAlignment="Top" Width="256" Height="32" Grid.Column="1" RenderTransformOrigin="0.415,-0.499"/>
+        <Button x:Name="deleteAccount" Content="Usuń" HorizontalAlignment="Left" Margin="342,737,0,0" VerticalAlignment="Top" Width="255" Height="32" Grid.Column="1"/>
 
     </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BANK.Models
 {
-    internal class Transaction
+    public class Transaction
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -34,6 +34,14 @@ namespace BANK.Models
             this.Id = newid;
             Menu.Db.GetContext().transacts.Add(this);
             Menu.Db.GetContext().SaveChanges();
+        }
+        public override string ToString()
+        {
+            return Title + "\tSaldo: " + Amount;
+        }
+        public string ToStringExt()
+        {
+            return Title + "\nZ: "+sourceaccountnr+"\nDo: "+destinationaccountnr+"\nSaldo:" + Amount;
         }
     }
 
