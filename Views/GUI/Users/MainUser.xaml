@@ -14,8 +14,9 @@
         <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Witaj" VerticalAlignment="Top" Height="39" Width="518" TextAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" Margin="384,19,0,0"/>
         <TextBlock x:Name="DetailsTextBlock" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="166" FontSize="20" HorizontalAlignment="Center" Width="1116" Grid.ColumnSpan="2"/>
         <ListBox x:Name="accountsListbox" ItemsSource="{Binding UserAccounts}" SelectedItem="{Binding SelectedAccount}" SelectionChanged="SelectAccount" Margin="0,254,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Button x:Name="transferButton" Content="Przelew" HorizontalAlignment="Center" Margin="0,759,0,0" VerticalAlignment="Top" Height="39" Width="510" Click="transferButton_Click"/>
+        <Button x:Name="transferButton" Content="Przelew" HorizontalAlignment="Left" Margin="66,754,0,0" VerticalAlignment="Top" Height="39" Width="260" Click="transferButton_Click"/>
         <ListBox x:Name="transactionhistoryListbox" ItemsSource="{Binding Transacts}" SelectedItem="{Binding SelectedTransfer}" SelectionChanged="SelectTransfer" Margin="0,254,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1"/>
+        <Button x:Name="editUserButton" Content="Edytuj dane" HorizontalAlignment="Left" Margin="316,754,0,0" VerticalAlignment="Top" Height="39" RenderTransformOrigin="1.01,1.463" Width="260" Click="editUserButton_Click"/>
 
     </Grid>
 </Window>

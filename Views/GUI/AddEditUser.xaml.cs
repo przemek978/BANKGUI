@@ -23,35 +23,37 @@ namespace BANKGUI.Views.GUI
     /// </summary>
     public partial class AddEditUser : Window
     {
-        string password,repassword;
+        string password, repassword;
         int typeID;
         int id;
         public User user;
-        public bool IsEdit=false;
-        public AddEditUser(User u=null)
+        public bool IsEdit = false;
+        public AddEditUser(User u = null)
         {
             InitializeComponent();
             //WindowState = WindowState.Normal;
-            if (MainWindow.typeLogin==1)
+            if (MainWindow.typeLogin == 1)
             {
-                TypeUserComboBox.Visibility=Visibility.Visible;
+                TypeUserComboBox.Visibility = Visibility.Visible;
             }
             else
             {
                 TypeUserComboBox.Visibility = Visibility.Hidden;
                 typeID = 2;
             }
-            if (u!=null)
+            if (u != null)
             {
-                IsEdit=true;
+                typeID = u.typeID;
+                IsEdit = true;
                 id = u.Id;
                 user = u;
                 passwordfieldgrid.Visibility = Visibility.Hidden;
-                usernametextBox.Text =user.Username;
-                nametextBox.Text=user.Name;
-                surnametextBox.Text=user.SurName;
+                usernametextBox.Text = user.Username;
+                usernametextBox.IsEnabled = false;
+                nametextBox.Text = user.Name;
+                surnametextBox.Text = user.SurName;
                 peseltextBox.Text = user.Pesel;
-                password=user.Password;
+                password = user.Password;
                 repassword = user.Password;
                 this.Height = 365;
 
@@ -67,12 +69,15 @@ namespace BANKGUI.Views.GUI
         {
             if (passwordtextBox.Password == repasswordtextBox.Password)
             {
-                if (TypeUserComboBox.Text == "Admin")
+                if (TypeUserComboBox.Text == "Admin" && MainWindow.typeLogin == 1)
                 {
                     typeID = 1;
                 }
-                else typeID = 2;
-                user = new User(0, usernametextBox.Text, nametextBox.Text, surnametextBox.Text, peseltextBox.Text, passwordtextBox.Password,typeID);
+                else if (TypeUserComboBox.Text == "User")
+                {
+                    typeID = 2;
+                }
+                user = new User(0, usernametextBox.Text, nametextBox.Text, surnametextBox.Text, peseltextBox.Text, passwordtextBox.Password, typeID);
                 if (IsEdit)
                 {
                     user.Id = id;
@@ -84,9 +89,14 @@ namespace BANKGUI.Views.GUI
                     Menu.Db.Register(user);
                 }
                 this.Close();
-                ((BANKGUI.Views.GUI.Admins.MainAdmin)(MainWindow.thisWindow)).Refresh();
+                if (MainWindow.typeLogin == 1)
+                {
+                    ((BANKGUI.Views.GUI.Admins.MainAdmin)(MainWindow.thisWindow)).Refresh();
+                }
+                else ((BANKGUI.Views.GUI.Users.MainUser)(MainWindow.thisWindow)).Refresh();
                 MainWindow.thisWindow.Show();
             }
+
             else
             {
 
