@@ -50,7 +50,7 @@ namespace BANKGUI
 
             ShowWindow(handle, SW);// 0 ukrywa a 5 pokazuje
         }
-
+        
 
 
 
