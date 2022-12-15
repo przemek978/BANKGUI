@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -73,8 +74,8 @@ namespace BANKGUI.Views.GUI.Admins
                     DetailsTextBlock.Text = SelectedUser.ToStringExt();
                 }
                 else
-                { 
-                    DetailsTextBlock.Text = ""; 
+                {
+                    DetailsTextBlock.Text = "";
                 }
             }
         }
@@ -82,7 +83,21 @@ namespace BANKGUI.Views.GUI.Admins
         {
             //Users.Clear();
             Users = Menu.Db.GetUsers();
+            accounts = Menu.Db.GetAccounts();
             usersListbox.ItemsSource = Users;
+            UserAccounts.Clear();
+            if (SelectedUser != null)
+            {
+                foreach (Account account in accounts)
+                {
+                    if (SelectedUser.Id == account.UserId)
+                    {
+                        UserAccounts.Add(account);
+                    }
+                }
+            }
+            accountsListbox.ItemsSource = UserAccounts;
+            accountsListbox.Items.Refresh();
             usersListbox.Items.Refresh();
             DataContext = this;
         }
@@ -107,6 +122,53 @@ namespace BANKGUI.Views.GUI.Admins
         {
             Menu.Db.DeleteUser(SelectedUser);
             this.Refresh();
+        }
+
+        private void addAccount_Click(object sender, RoutedEventArgs e)
+        {
+            // Menu.Db.CreateAccount(SelectedAccount);
+            if (SelectedUser.Id!= null)
+            {
+                Random rnd = new Random();
+                string AccountNr;
+                while (true)
+                {
+                    AccountNr = "78";
+                    for (int i = 0; i < 24; i++)
+                    {
+                        if (i % 4 == 0)
+                        {
+                            AccountNr += " ";
+                        }
+                        AccountNr += Convert.ToString(rnd.Next() % 10);
+                    }
+                    foreach (var ac in Menu.Db.accounts.ToList())
+                    {
+                        if (String.Compare(ac.AccountNr, AccountNr) == 0)
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                }
+
+                var Account = new Account(AccountNr, SelectedUser.Id);
+                Menu.Db.CreateAccount(Account);
+            }
+            this.Refresh();
+        }
+
+        private void deleteAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Menu.Db.DeleteAccount(SelectedAccount);
+            this.Refresh();
+        }
+
+        private void passwordResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            Menu.Db.ResetPassword(SelectedUser);
+            this.Refresh();
+            MessageBox.Show("Hasło zostało zresetowane na PESEL", "OK", MessageBoxButton.OK);
         }
     }
 }

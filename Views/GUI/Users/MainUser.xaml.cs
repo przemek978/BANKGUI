@@ -56,6 +56,17 @@ namespace BANKGUI.Views.GUI.Users
                     UserAccounts.Add(account);
                 }
             }
+            var transacts = Menu.Db.GetTransactions();
+            Transacts.Clear();
+            foreach (var t in transacts)
+            {
+                if (t.sourceaccountnr == SelectedAccount.AccountNr)
+                {
+                    Transacts.Add(t);
+                }
+            }
+            transactionhistoryListbox.ItemsSource = Transacts;
+            transactionhistoryListbox.Items.Refresh();
             accountsListbox.ItemsSource =UserAccounts;
             accountsListbox.Items.Refresh();
             DataContext = this;
@@ -81,7 +92,10 @@ namespace BANKGUI.Views.GUI.Users
         }
         private void transferButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            var transfer=new Transfer(SelectedAccount);
+            transfer.Show();
+            MainWindow.thisWindow = this;
         }
 
         private void editUserButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +103,14 @@ namespace BANKGUI.Views.GUI.Users
             this.Hide();
             var add = new AddEditUser(user);
             add.Show();
+            MainWindow.thisWindow = this;
+        }
+
+        private void passwordChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var changepass = new ChangePassword(user);
+            changepass.Show();
             MainWindow.thisWindow = this;
         }
     }

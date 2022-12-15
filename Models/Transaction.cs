@@ -37,11 +37,11 @@ namespace BANK.Models
         }
         public override string ToString()
         {
-            return Title + "\tSaldo: " + Amount;
+            return Title + "\tKwota: " + Amount;
         }
         public string ToStringExt()
         {
-            return Title + "\nZ: "+sourceaccountnr+"\nDo: "+destinationaccountnr+"\nSaldo:" + Amount;
+            return Title + "\nZ: "+sourceaccountnr+"\nDo: "+destinationaccountnr+"\nKwota:" + Amount;
         }
     }
 

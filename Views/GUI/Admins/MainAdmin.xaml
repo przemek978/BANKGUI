@@ -19,8 +19,9 @@
         <Button x:Name="editUser" Content="Edytuj" HorizontalAlignment="Left" Margin="233,742,0,0" VerticalAlignment="Top" Width="170" Height="32" Click="editUser_Click"/>
         <Button x:Name="deleteUser" Content="Usuń" HorizontalAlignment="Left" Margin="402,742,0,0" VerticalAlignment="Top" Width="170" Height="32" Click="deleteUser_Click"/>
 
-        <Button x:Name="addAccount"  Content="Dodaj" HorizontalAlignment="Right" Margin="0,737,299,0" VerticalAlignment="Top" Width="256" Height="32" Grid.Column="1" RenderTransformOrigin="0.415,-0.499"/>
-        <Button x:Name="deleteAccount" Content="Usuń" HorizontalAlignment="Left" Margin="342,737,0,0" VerticalAlignment="Top" Width="255" Height="32" Grid.Column="1"/>
+        <Button x:Name="addAccount"  Content="Dodaj" HorizontalAlignment="Right" Margin="0,737,299,0" VerticalAlignment="Top" Width="256" Height="32" Grid.Column="1" RenderTransformOrigin="0.415,-0.499" Click="addAccount_Click"/>
+        <Button x:Name="deleteAccount" Content="Usuń" HorizontalAlignment="Left" Margin="342,737,0,0" VerticalAlignment="Top" Width="255" Height="32" Grid.Column="1" Click="deleteAccount_Click"/>
+        <Button x:Name="passwordResetButton" Content="Resetuj Haslo" HorizontalAlignment="Left" Margin="62,774,0,0" VerticalAlignment="Top" Width="510" Height="32" Click="passwordResetButton_Click"/>
 
     </Grid>
 </Window>

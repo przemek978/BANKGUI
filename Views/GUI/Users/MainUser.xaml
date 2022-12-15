@@ -17,6 +17,7 @@
         <Button x:Name="transferButton" Content="Przelew" HorizontalAlignment="Left" Margin="66,754,0,0" VerticalAlignment="Top" Height="39" Width="260" Click="transferButton_Click"/>
         <ListBox x:Name="transactionhistoryListbox" ItemsSource="{Binding Transacts}" SelectedItem="{Binding SelectedTransfer}" SelectionChanged="SelectTransfer" Margin="0,254,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1"/>
         <Button x:Name="editUserButton" Content="Edytuj dane" HorizontalAlignment="Left" Margin="316,754,0,0" VerticalAlignment="Top" Height="39" RenderTransformOrigin="1.01,1.463" Width="260" Click="editUserButton_Click"/>
+        <Button x:Name="passwordChangeButton" Content="Zmień Haslo" HorizontalAlignment="Center" Margin="0,753,0,0" VerticalAlignment="Top" Width="510" Height="32" Grid.Column="1" Click="passwordChangeButton_Click"/>
 
     </Grid>
 </Window>

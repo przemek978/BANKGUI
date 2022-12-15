@@ -22,7 +22,7 @@ namespace BANK.Models
         }
         public override string ToString()
         {
-            return AccountNr;
+            return AccountNr+" Saldo: " + Balance + " zł";
         }
         public string ToStringExt()
         {

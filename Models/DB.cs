@@ -55,11 +55,14 @@ namespace BANK.Models
         public void ResetPassword(User user)
         {
             Console.Clear();
-            var passwordHasher = new PasswordHasher<String>();
-            var hashed = passwordHasher.HashPassword(null, user.Pesel);
+            if (user != null)
+            {
+                var passwordHasher = new PasswordHasher<String>();
+                var hashed = passwordHasher.HashPassword(null, user.Pesel);
 
-            users[FindUser(user)].Password = hashed;
-            modelContext.SaveChanges();
+                users[FindUser(user)].Password = hashed;
+                modelContext.SaveChanges();
+            }
         }
         public void ChangePassword(User user)
         {
@@ -92,6 +95,11 @@ namespace BANK.Models
             }
             var hashed = passwordHasher.HashPassword(null,Password);
 
+            users[FindUser(user)].Password = hashed;
+            modelContext.SaveChanges();
+        }
+        public void ChangePassword(User user,string hashed)
+        {
             users[FindUser(user)].Password = hashed;
             modelContext.SaveChanges();
         }
@@ -237,6 +245,19 @@ namespace BANK.Models
             }
             return -1;
         }
+        public Account FindAccount(string accountnr)
+        {
+            int i = 0;
+            foreach (var a in accounts)
+            {
+                if (string.Compare(a.AccountNr,accountnr)==0)
+                {
+                    return a;
+                }
+                i++;
+            }
+            return null;
+        }
         public int FindUser(User user)
         {
             int i = 0;
@@ -257,11 +278,13 @@ namespace BANK.Models
         }
         public List<Account> GetAccounts()
         {
-            return accounts;
+            //return accounts;
+            return modelContext.accounts.ToList();
         }
         public List<Transaction> GetTransactions()
         {
-            return transacts;
+            //return transacts;
+            return modelContext.transacts.ToList(); 
         }
         public ModelContext GetContext()
         {

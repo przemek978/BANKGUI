@@ -1,0 +1,21 @@
+﻿<Window x:Class="BANKGUI.Views.GUI.Users.Transfer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BANKGUI.Views.GUI.Users"
+        mc:Ignorable="d"
+        Title="Transfer" Height="345" Width="365">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="20,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nr konta"/></TextBlock>
+        <TextBox x:Name="accountNrTextBox" HorizontalAlignment="Left" Margin="20,66,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="335" Height="18" MaxLines="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Tytuł"/></TextBlock>
+        <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" Margin="20,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Height="54"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Kwota"/></TextBlock>
+        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Margin="20,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" AutomationProperties.ItemType="decimal"/>
+
+
+        <Button x:Name="submitButton" Content="Potwierdź" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="365" Click="submitButton_Click"/>
+
+    </Grid>
+</Window>
