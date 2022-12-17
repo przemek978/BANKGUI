@@ -6,26 +6,45 @@
         xmlns:local="clr-namespace:BANKGUI.Views.GUI"
         mc:Ignorable="d"
         Title="AddEditUser" Height="480" Width="300">
+    
     <Grid>
-        <TextBlock x:Name="usernametextBlock" HorizontalAlignment="Left" Margin="55,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Text="Nazwa u"/><Run Language="pl-pl" Text="żytkownika"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
-        <TextBox x:Name="usernametextBox" HorizontalAlignment="Center" Margin="0,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <TextBlock x:Name="nametextBlock" HorizontalAlignment="Left" Margin="55,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Language="pl-pl" Text="Imie"/></TextBlock>
-        <TextBox x:Name="nametextBox" HorizontalAlignment="Center" Margin="0,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <TextBlock x:Name="surnametextBlock" HorizontalAlignment="Left" Margin="55,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Language="pl-pl" Text="Nazwisko"/></TextBlock>
-        <TextBox x:Name="surnametextBox" HorizontalAlignment="Center" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <Button x:Name="submit" Content="Potwierdz" HorizontalAlignment="Center" Margin="0,0,0,35" VerticalAlignment="Bottom" Width="190" Click="submit_Click"/>
-        <TextBlock x:Name="peseltextBlock" HorizontalAlignment="Left" Margin="55,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Language="pl-pl" Text="Pesel"/></TextBlock>
-        <TextBox x:Name="peseltextBox" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <ComboBox x:Name="TypeUserComboBox" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Width="84" Height="19" SelectedIndex="0">
-            <TextBlock FontSize="10" Text="Admin"/>
-            <TextBlock FontSize="10" Text="User"/>
-        </ComboBox>
-        <Grid x:Name="passwordfieldgrid" Margin="20,282,20,0" Height="122" VerticalAlignment="Top">
-            <TextBlock x:Name="passwordtextBlock" HorizontalAlignment="Left" Margin="35,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="20"><Run Language="pl-pl" Text="Haslo"/></TextBlock>
-            <PasswordBox  x:Name="passwordtextBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="190" Password="" Margin="0,35,0,0"/>
-            <TextBlock x:Name="repasswordtextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20" Margin="35,69,0,0"><Run Language="pl-pl" Text="Powtórz haslo"/></TextBlock>
-            <PasswordBox x:Name="repasswordtextBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="190" Password="" Margin="0,94,0,0"/>
-        </Grid>
+        
+        <StackPanel Margin="30,17,50,23" >
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="0,10,0,10"/>
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <ComboBox x:Name="TypeUserComboBox" HorizontalAlignment="Center" Margin="0,10,0,20" VerticalAlignment="Top" Width="84" Height="19" SelectedIndex="0">
+                <TextBlock FontSize="10" Text="Admin" Margin="0,0,0,0"/>
+                <TextBlock FontSize="10" Text="User" />
+            </ComboBox>
+            <TextBlock x:Name="usernametextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Text="Nazwa u"/><Run Language="pl-pl" Text="żytkownika"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+            <TextBox x:Name="usernametextBox" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+            <TextBlock x:Name="nametextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Language="pl-pl" Text="Imie"/></TextBlock>
+            <TextBox x:Name="nametextBox" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+            <TextBlock x:Name="surnametextBlock" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Language="pl-pl" Text="Nazwisko"/></TextBlock>
+            <TextBox x:Name="surnametextBox" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+            
+            <TextBlock x:Name="peseltextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20"><Run Language="pl-pl" Text="Pesel"/></TextBlock>
+            <TextBox x:Name="peseltextBox" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+            <StackPanel x:Name="passwordfieldstackpanel" Height="122">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Margin" Value="0,10,0,10"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock x:Name="passwordtextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="20"><Run Language="pl-pl" Text="Haslo"/></TextBlock>
+                <PasswordBox  x:Name="passwordtextBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="190" Password="" />
+                <TextBlock x:Name="repasswordtextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="20" Text="Powtórz haslo"/>
+                <PasswordBox x:Name="repasswordtextBox" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="190" Password="" />
+            </StackPanel>
+            <Button x:Name="submit" Content="Potwierdz" HorizontalAlignment="Center" Margin="0,0,0,35" VerticalAlignment="Bottom" Width="190" Click="submit_Click"/>
+            
+        </StackPanel>
 
     </Grid>
 </Window>

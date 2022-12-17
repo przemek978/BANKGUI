@@ -7,15 +7,25 @@
         mc:Ignorable="d"
         Title="Transfer" Height="345" Width="365">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="20,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nr konta"/></TextBlock>
-        <TextBox x:Name="accountNrTextBox" HorizontalAlignment="Left" Margin="20,66,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="335" Height="18" MaxLines="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="20,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Tytuł"/></TextBlock>
-        <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" Margin="20,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Height="54"/>
-        <TextBlock HorizontalAlignment="Left" Margin="20,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Kwota"/></TextBlock>
-        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Margin="20,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" AutomationProperties.ItemType="decimal"/>
+        <StackPanel Margin="5,10,5,19">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="10,10,0,10"/>
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nr konta"/></TextBlock>
+            <TextBox x:Name="accountNrTextBox" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="335" Height="18" MaxLines="1"/>
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Tytuł"/></TextBlock>
+            <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Height="54"/>
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Kwota"/></TextBlock>
+            <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" AutomationProperties.ItemType="decimal"/>
 
 
-        <Button x:Name="submitButton" Content="Potwierdź" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="365" Click="submitButton_Click"/>
+            <Button x:Name="submitButton" Content="Potwierdź" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="365" Click="submitButton_Click"/>
+        </StackPanel>
 
     </Grid>
 </Window>
