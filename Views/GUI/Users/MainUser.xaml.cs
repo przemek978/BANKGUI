@@ -1,4 +1,5 @@
-﻿using BANK.Models;
+﻿using BANK.Controllers;
+using BANK.Models;
 using BANK.Views;
 using System;
 using System.Collections.Generic;
@@ -112,6 +113,12 @@ namespace BANKGUI.Views.GUI.Users
             var changepass = new ChangePassword(user);
             changepass.Show();
             MainWindow.thisWindow = this;
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            var Main = new MainController(MainWindow.wybor);
+            this.Close();
         }
     }
 }

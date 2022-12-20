@@ -29,6 +29,7 @@
             <Button x:Name="addAccount"  Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Width="256" Height="32" Grid.Column="1" RenderTransformOrigin="0.415,-0.499" Click="addAccount_Click"/>
             <Button x:Name="deleteAccount" Content="Usuń" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="255" Height="32" Grid.Column="1" Click="deleteAccount_Click"/>
         </StackPanel>
+        <Button x:Name="logout" Grid.Column="1" Content="Wyloguj" HorizontalAlignment="Left" Margin="432,19,0,0" VerticalAlignment="Top" Height="26" Width="146" Click="logout_Click"/>
 
     </Grid>
 </Window>

@@ -38,7 +38,7 @@ namespace BANKGUI.Views.GUI
             }
             else
             {
-                TypeUserComboBox.Visibility = Visibility.Hidden;
+                TypeUserComboBox.Visibility = Visibility.Collapsed;
                 typeID = 2;
             }
             if (u != null)
@@ -47,7 +47,7 @@ namespace BANKGUI.Views.GUI
                 IsEdit = true;
                 id = u.Id;
                 user = u;
-                passwordfieldgrid.Visibility = Visibility.Hidden;
+                passwordfieldstackpanel.Visibility = Visibility.Collapsed;
                 usernametextBox.Text = user.Username;
                 usernametextBox.IsEnabled = false;
                 nametextBox.Text = user.Name;
@@ -55,14 +55,20 @@ namespace BANKGUI.Views.GUI
                 peseltextBox.Text = user.Pesel;
                 password = user.Password;
                 repassword = user.Password;
-                this.Height = 365;
+                this.Height = 360;
 
             }
             else
             {
-                passwordfieldgrid.Visibility = Visibility.Visible;
+                passwordfieldstackpanel.Visibility = Visibility.Visible;
                 this.Height = 480;
             }
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow.thisWindow.Show();
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)

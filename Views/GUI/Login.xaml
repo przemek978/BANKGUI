@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:BANK.Views"
         xmlns:local="clr-namespace:BANKGUI"
         mc:Ignorable="d"
-        Title="Login" Height="295" Width="305">
+        Title="Login" Height="295" Width="330">
 
     <Window.Background>
         <ImageBrush ImageSource="D:\Projects\KCK\BANK\BANKGUI\IMG\background.jpg" Stretch="UniformToFill"/>

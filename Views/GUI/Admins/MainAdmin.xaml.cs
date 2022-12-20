@@ -1,4 +1,5 @@
-﻿using BANK.Models;
+﻿using BANK.Controllers;
+using BANK.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -169,6 +170,12 @@ namespace BANKGUI.Views.GUI.Admins
             Menu.Db.ResetPassword(SelectedUser);
             this.Refresh();
             MessageBox.Show("Hasło zostało zresetowane na PESEL", "OK", MessageBoxButton.OK);
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            var Main = new MainController(MainWindow.wybor);
+            this.Close();
         }
     }
 }

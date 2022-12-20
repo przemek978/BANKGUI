@@ -234,6 +234,7 @@ namespace BANK.Models
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         public int FindAccount(Account account)
         {
+            accounts = GetAccounts();
             int i = 0;
             foreach (var a in accounts)
             {
@@ -247,6 +248,7 @@ namespace BANK.Models
         }
         public Account FindAccount(string accountnr)
         {
+            accounts = GetAccounts();
             int i = 0;
             foreach (var a in accounts)
             {

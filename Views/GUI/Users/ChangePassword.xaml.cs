@@ -30,6 +30,11 @@ namespace BANKGUI.Views.GUI.Users
             this.user = user;  
         }
 
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow.thisWindow.Show();
+        }
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             if (passwordtextBox.Password == repasswordtextBox.Password)

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANKGUI.Views.GUI.Users"
         mc:Ignorable="d"
-        Title="Transfer" Height="345" Width="365">
+        Title="Transfer" Height="295" Width="380">
     <Grid>
-        <StackPanel Margin="5,10,5,19">
+        <StackPanel Margin="5,10,10,0">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Margin" Value="10,10,0,10"/>
@@ -24,7 +24,8 @@
             <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" AutomationProperties.ItemType="decimal"/>
 
 
-            <Button x:Name="submitButton" Content="Potwierdź" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="365" Click="submitButton_Click"/>
+            <Button x:Name="submitButton" Content="Potwierdź" HorizontalAlignment="Center" Width="245" Click="submitButton_Click"/>
+            <Button x:Name="back" Content="Powrót" Height="18" Width="245" Click="back_Click"/>
         </StackPanel>
 
     </Grid>

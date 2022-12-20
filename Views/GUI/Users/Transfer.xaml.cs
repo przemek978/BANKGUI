@@ -28,6 +28,11 @@ namespace BANKGUI.Views.GUI.Users
             Account = account;
         }
 
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow.thisWindow.Show();
+        }
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
             Menu.Db.Transfering(Account, Menu.Db.FindAccount(accountNrTextBox.Text.TrimEnd()), Convert.ToDecimal(amountTextBox.Text), titleTextBox.Text);

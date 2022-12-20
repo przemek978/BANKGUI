@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANKGUI.Views.GUI.Users"
         mc:Ignorable="d"
-        Title="MainUser" Height="846" Width="1285">
+        Title="Panel użytkownika" Height="846" Width="1285">
     <Window.Background>
         <ImageBrush ImageSource="D:\Projects\KCK\BANK\BANKGUI\IMG\background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -29,5 +29,6 @@
             <Button x:Name="passwordChangeButton" Content="Zmień Haslo" HorizontalAlignment="Center" VerticalAlignment="Top" Width="510" Height="32" Grid.Column="1" Click="passwordChangeButton_Click"/>
 
         </StackPanel>
+        <Button x:Name="logout" Grid.Column="1" Content="Wyloguj" HorizontalAlignment="Left" Margin="432,19,0,0" VerticalAlignment="Top" Height="26" Width="146" Click="logout_Click"/>
     </Grid>
 </Window>
