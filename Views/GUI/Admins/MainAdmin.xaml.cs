@@ -192,14 +192,15 @@ namespace BANKGUI.Views.GUI.Admins
             if (SelectedUser != null)
             {
                 Menu.Db.ResetPassword(SelectedUser);
+                MessageBox.Show("Hasło zostało zresetowane na PESEL", "OK", MessageBoxButton.OK);
             }
             else
             {
                 MessageBox.Show("Wybierz użytkownika", "Error", MessageBoxButton.OK);
             }
             this.Refresh();
-            MessageBox.Show("Hasło zostało zresetowane na PESEL", "OK", MessageBoxButton.OK);
         }
+
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {

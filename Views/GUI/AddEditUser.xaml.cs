@@ -55,7 +55,7 @@ namespace BANKGUI.Views.GUI
                 peseltextBox.Text = user.Pesel;
                 password = user.Password;
                 repassword = user.Password;
-                this.Height = 360;
+                this.Height = 375;
 
             }
             else
