@@ -161,7 +161,10 @@ namespace BANKGUI.Views.GUI.Admins
 
         private void deleteAccount_Click(object sender, RoutedEventArgs e)
         {
-            Menu.Db.DeleteAccount(SelectedAccount);
+            //if (SelectedAccount > 0)
+            {
+                Menu.Db.DeleteAccount(SelectedAccount);
+            }
             this.Refresh();
         }
 
