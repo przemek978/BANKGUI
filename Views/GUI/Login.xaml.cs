@@ -37,18 +37,16 @@ namespace BANKGUI
             bool IsLoged = false;
             foreach (var us in Menu.Db.GetUsers())
             {
-                //if (us.Username == usernameBox.Text)
-                //{
-                //    if (passwordHasher.VerifyHashedPassword(null, us.Password, passwordBox.Password) == PasswordVerificationResult.Success)
-                //    {
-                //        user = us;
-                //        IsLoged = true;
-                //        break;
-                //    }
-                //}
-                user = us;
-                IsLoged = true;
-                break;
+                if (us.Username == usernameBox.Text)
+                {
+                    if (passwordHasher.VerifyHashedPassword(null, us.Password, passwordBox.Password) == PasswordVerificationResult.Success)
+                    {
+                        user = us;
+                        IsLoged = true;
+                        break;
+                    }
+                }
+
             }
             if (TypeUserComboBox.Text == "Admin")
             {

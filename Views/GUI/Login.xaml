@@ -10,7 +10,7 @@
         Title="Login" Height="295" Width="330">
 
     <Window.Background>
-        <ImageBrush ImageSource="D:\Projects\KCK\BANK\BANKGUI\IMG\background.jpg" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="C:\\DATABASE\background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
 
     <Grid>

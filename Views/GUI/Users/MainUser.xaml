@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANKGUI.Views.GUI.Users"
         mc:Ignorable="d"
-        Title="Panel użytkownika" Height="846" Width="1285">
+        Title="Panel użytkownika" Height="785" Width="1285">
     <Window.Background>
-        <ImageBrush ImageSource="D:\Projects\KCK\BANK\BANKGUI\IMG\background.jpg" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="C:\\DATABASE\background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,18 +17,16 @@
 
         <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Witaj" VerticalAlignment="Top" Height="39" Width="518" TextAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" Margin="384,19,0,0"/>
         <TextBlock x:Name="DetailsTextBlock" Margin="0,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="126" FontSize="20" HorizontalAlignment="Center" Width="717" Grid.ColumnSpan="2" Background="#662E7D32"/>
-
-        <ListBox x:Name="accountsListbox" ItemsSource="{Binding UserAccounts}" SelectedItem="{Binding SelectedAccount}" SelectionChanged="SelectAccount" Margin="69,237,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <ListBox x:Name="transactionhistoryListbox" ItemsSource="{Binding Transacts}" SelectedItem="{Binding SelectedTransfer}" SelectionChanged="SelectTransfer" Margin="94,237,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
-
-        <StackPanel Margin="62,737,56,36" Orientation="Horizontal">
+        <Button x:Name="logout" Grid.Column="1" Content="Wyloguj" HorizontalAlignment="Left" Margin="432,19,0,0" VerticalAlignment="Top" Height="26" Width="146" Click="logout_Click"/>
+        <ListBox x:Name="accountsListbox" ItemsSource="{Binding UserAccounts}" SelectedItem="{Binding SelectedAccount}" SelectionChanged="SelectAccount" Margin="68,212,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <ListBox x:Name="transactionhistoryListbox" ItemsSource="{Binding Transacts}" SelectedItem="{Binding SelectedTransfer}" SelectionChanged="SelectTransfer" Margin="94,212,0,0" Width="510" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+        <StackPanel Margin="62,712,56,0" Orientation="Horizontal">
             <Button x:Name="transferButton" Content="Przelew" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="260" Click="transferButton_Click"/>
             <Button x:Name="editUserButton" Content="Edytuj dane" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" RenderTransformOrigin="1.01,1.463" Width="260" Click="editUserButton_Click"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="88,737,0,36"  HorizontalAlignment="Left" Grid.Column="1" Width="522">
+        <StackPanel Orientation="Horizontal" Margin="88,712,0,0"  HorizontalAlignment="Left" Grid.Column="1" Width="522">
             <Button x:Name="passwordChangeButton" Content="Zmień Haslo" HorizontalAlignment="Center" VerticalAlignment="Top" Width="510" Height="32" Grid.Column="1" Click="passwordChangeButton_Click"/>
 
         </StackPanel>
-        <Button x:Name="logout" Grid.Column="1" Content="Wyloguj" HorizontalAlignment="Left" Margin="432,19,0,0" VerticalAlignment="Top" Height="26" Width="146" Click="logout_Click"/>
     </Grid>
 </Window>
