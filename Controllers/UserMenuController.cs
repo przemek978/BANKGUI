@@ -12,8 +12,10 @@ namespace BANK.Controllers
 {
     internal class UserMenuController
     {
-        public UserMenuController(User user, int typelogin, int wybor=1)
+        public UserMenuController(User user, int typelogin, int wybor=1,int option=-1)
         {
+            var accounts = new ListAccounts();
+            var transacts = new ListTransactions();
             if (wybor == 1)
             {
                 if (user != null)
@@ -51,8 +53,8 @@ namespace BANK.Controllers
                         else
                         {
                             var view = new MainUser(user);
-                            var accounts = new ListAccounts();
-                            var transacts = new ListTransactions();
+                            //var accounts = new ListAccounts();
+                            //var transacts = new ListTransactions();
                             switch (view.Selected)
                             {
                                 case 0:
@@ -94,8 +96,17 @@ namespace BANK.Controllers
                 }
                 else
                 {
-
+                    var MainUser= new BANKGUI.Views.GUI.Users.MainUser(user);
+                    MainUser.Show();
                 }
+                //switch (option)
+                //{
+                //    case 0:
+                //        break;
+                //    case 1:
+                //        break;
+
+                //}
             }
         }
     }

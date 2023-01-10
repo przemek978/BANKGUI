@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using static Azure.Core.HttpHeader;
 
 
 namespace BANK.Models
@@ -34,6 +35,7 @@ namespace BANK.Models
         //User
         public void Register(User user)
         {
+            users = GetUsers();
             int newid;
             if (users.Count == 0)
             {
@@ -53,11 +55,14 @@ namespace BANK.Models
         public void ResetPassword(User user)
         {
             Console.Clear();
-            var passwordHasher = new PasswordHasher<String>();
-            var hashed = passwordHasher.HashPassword(null, user.Pesel);
+            if (user != null)
+            {
+                var passwordHasher = new PasswordHasher<String>();
+                var hashed = passwordHasher.HashPassword(null, user.Pesel);
 
-            users[FindUser(user)].Password = hashed;
-            modelContext.SaveChanges();
+                users[FindUser(user)].Password = hashed;
+                modelContext.SaveChanges();
+            }
         }
         public void ChangePassword(User user)
         {
@@ -92,6 +97,25 @@ namespace BANK.Models
 
             users[FindUser(user)].Password = hashed;
             modelContext.SaveChanges();
+        }
+        public void ChangePassword(User user,string hashed)
+        {
+            users[FindUser(user)].Password = hashed;
+            modelContext.SaveChanges();
+        }
+        public User EditUser(User user)
+        {
+            users = GetUsers();
+            bool con = true;
+            users[FindUser(user)].Username = user.Username;
+            users[FindUser(user)].Name = user.Name;
+            users[FindUser(user)].SurName = user.SurName;
+            if (user.typeID == 1 || user.typeID == 2)
+            {
+                users[FindUser(user)].typeID = user.typeID;
+            }
+            modelContext.SaveChanges();
+            return user;
         }
         public User EditUsername(User user)
         {
@@ -210,6 +234,7 @@ namespace BANK.Models
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         public int FindAccount(Account account)
         {
+            accounts = GetAccounts();
             int i = 0;
             foreach (var a in accounts)
             {
@@ -220,6 +245,20 @@ namespace BANK.Models
                 i++;
             }
             return -1;
+        }
+        public Account FindAccount(string accountnr)
+        {
+            accounts = GetAccounts();
+            int i = 0;
+            foreach (var a in accounts)
+            {
+                if (string.Compare(a.AccountNr,accountnr)==0)
+                {
+                    return a;
+                }
+                i++;
+            }
+            return null;
         }
         public int FindUser(User user)
         {
@@ -236,15 +275,18 @@ namespace BANK.Models
         }
         public List<User> GetUsers()
         {
-            return users;
+            //return users;
+            return modelContext.users.ToList();
         }
         public List<Account> GetAccounts()
         {
-            return accounts;
+            //return accounts;
+            return modelContext.accounts.ToList();
         }
         public List<Transaction> GetTransactions()
         {
-            return transacts;
+            //return transacts;
+            return modelContext.transacts.ToList(); 
         }
         public ModelContext GetContext()
         {

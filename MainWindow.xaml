@@ -6,5 +6,6 @@
         xmlns:local="clr-namespace:BANKGUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="240" Width="250">
+    
     <Grid/>
 </Window>

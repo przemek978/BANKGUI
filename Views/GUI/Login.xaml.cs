@@ -63,7 +63,9 @@ namespace BANKGUI
             {
                 if ((MainWindow.typeLogin == 1 && user.typeID == 1) || MainWindow.typeLogin == 2)
                 {
+                    MainWindow.user = user;
                     var Main = new UserMenuController(user, MainWindow.typeLogin, MainWindow.wybor);
+                    this.Close();
                 }
                 else
                 {
