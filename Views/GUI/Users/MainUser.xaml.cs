@@ -93,9 +93,16 @@ namespace BANKGUI.Views.GUI.Users
         }
         private void transferButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            var transfer=new Transfer(SelectedAccount);
-            transfer.Show();
+            if (SelectedAccount != null)
+            {
+                this.Hide();
+                var transfer = new Transfer(SelectedAccount);
+                transfer.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz konto", "Error", MessageBoxButton.OK);
+            }
             MainWindow.thisWindow = this;
         }
 

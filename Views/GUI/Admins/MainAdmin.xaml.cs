@@ -113,15 +113,30 @@ namespace BANKGUI.Views.GUI.Admins
 
         private void editUser_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            var add = new AddEditUser(SelectedUser);
-            add.Show();
-            MainWindow.thisWindow = this;
+            if (SelectedUser != null)
+            {
+                this.Hide();
+                var add = new AddEditUser(SelectedUser);
+                add.Show();
+                MainWindow.thisWindow = this;
+            }
+            else
+            {
+                MessageBox.Show("Wybierz użytkownika", "Error", MessageBoxButton.OK);
+            }
+           
         }
 
         private void deleteUser_Click(object sender, RoutedEventArgs e)
         {
-            Menu.Db.DeleteUser(SelectedUser);
+            if (SelectedUser != null)
+            {
+                Menu.Db.DeleteUser(SelectedUser);
+            }
+            else
+            {
+                MessageBox.Show("Wybierz użytkownika", "Error", MessageBoxButton.OK);
+            }
             this.Refresh();
         }
 
@@ -161,16 +176,27 @@ namespace BANKGUI.Views.GUI.Admins
 
         private void deleteAccount_Click(object sender, RoutedEventArgs e)
         {
-            //if (SelectedAccount > 0)
+            if (SelectedAccount !=null)
             {
                 Menu.Db.DeleteAccount(SelectedAccount);
+            }
+            else
+            {
+                MessageBox.Show("Wybierz konto", "Error", MessageBoxButton.OK);
             }
             this.Refresh();
         }
 
         private void passwordResetButton_Click(object sender, RoutedEventArgs e)
         {
-            Menu.Db.ResetPassword(SelectedUser);
+            if (SelectedUser != null)
+            {
+                Menu.Db.ResetPassword(SelectedUser);
+            }
+            else
+            {
+                MessageBox.Show("Wybierz użytkownika", "Error", MessageBoxButton.OK);
+            }
             this.Refresh();
             MessageBox.Show("Hasło zostało zresetowane na PESEL", "OK", MessageBoxButton.OK);
         }
