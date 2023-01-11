@@ -75,5 +75,12 @@ namespace BANKGUI
                 MessageBox.Show("Nieprawidłowa nazwa uzytkownika lub hasło","Coś poszlo nie tak", MessageBoxButton.OK);
             }
         }
+
+        private void Textmode(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow.wybor = 1;
+            var Main = new MainController(MainWindow.wybor);
+        }
     }
 }
